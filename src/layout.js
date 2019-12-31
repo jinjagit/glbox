@@ -7,10 +7,10 @@ const drawLayout = () => {
   if (width < winWidth) {
     offset = Math.floor((winWidth - width) / 2);
   }
-  let canvas = document.getElementById('canvas');
-  canvas.style.width = `${winHeight}px`;
-  canvas.style.height = `${winHeight}px`;
-  canvas.style.left = `${panelW + offset}px`;
+  let glcanvas = document.getElementById('glcanvas');
+  glcanvas.style.width = `${winHeight}px`;
+  glcanvas.style.height = `${winHeight}px`;
+  glcanvas.style.left = `${panelW + offset}px`;
   let panels = document.getElementsByClassName("panel");
   for (let i = 0; i < panels.length; i++) {
     panels[i].style.width = `${panelW * 0.98}px`;
