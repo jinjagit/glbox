@@ -4,8 +4,15 @@ const glRender = () => {
     var vendor = gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL);
     var renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
 
-    console.log(vendor);
-    console.log(renderer);
+    let vendorText = document.getElementById('vendorText');
+    vendorText.innerHTML = `${vendor}`;
+    let rendererText = document.getElementById('rendererText');
+    rendererText.innerHTML = `${renderer}`;
+  };
+  const randCol = () => {
+    gl.clearColor(Math.random(), Math.random(), Math.random(), 1.0);
+    // Clear the color buffer with specified clear color
+    gl.clear(gl.COLOR_BUFFER_BIT);
   };
   const canvas = document.querySelector("#glcanvas");
   // Initialize the GL context
@@ -21,6 +28,10 @@ const glRender = () => {
   gl.clear(gl.COLOR_BUFFER_BIT);
 
   debug();
+
+  // bind gl actions to elements
+  let randBtn = document.getElementById('rand');
+  rand.addEventListener("click", randCol);
 
 };
 

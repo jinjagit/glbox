@@ -5,8 +5,7 @@ const onResize = () => {
   const redrawIfInactive = () => {
     let now = getTime();
     if (now - lastResize > 995) {
-      drawLayout();
-      glRender();
+      render();
       console.log("redraw");
     };
   };
@@ -15,10 +14,14 @@ const onResize = () => {
   setTimeout(redrawIfInactive, 1000);
 };
 
+const render = () => {
+  drawLayout();
+  glRender();
+};
+
 window.onresize = onResize;
 
 const getTime = typeof performance === 'function' ? performance.now : Date.now;
 let lastResize = 0;
 
-drawLayout();
-glRender();
+render();

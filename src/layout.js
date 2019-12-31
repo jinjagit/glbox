@@ -18,6 +18,15 @@ const drawLayout = () => {
     panels[i].style.left = `${(panelW * 0.01) + ((winHeight + panelW) * i) + offset}px`;
     panels[i].style.top = `${winHeight * 0.0035}px`;
   };
+  // add elements to left panel, and style
+  let infoBox = document.getElementById('info');
+  let vendorText = document.createElement('p');
+  vendorText.id = 'vendorText';
+  infoBox.appendChild(vendorText);
+  let rendererText = document.createElement('p');
+  rendererText.id = 'rendererText';
+  infoBox.appendChild(rendererText);
+
 };
 
 export { drawLayout }
